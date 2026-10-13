@@ -38,7 +38,7 @@ export default function App() {
   return (
     <div className={`site${scrolled ? ' is-scrolled' : ''}`}>
       <a className="skip-link" href="#about">跳转至正文</a>
-      <PortraitScene modelUrl={profile.modelUrl} portraitUrl={assetUrl(profile.portraitUrl)} />
+      <PortraitScene portraitUrl={assetUrl(profile.portraitUrl)} />
       <div className="grain" aria-hidden="true" />
       <div className="frame" aria-hidden="true"><span>+</span><span>+</span><span>+</span><span>+</span></div>
 
@@ -108,7 +108,7 @@ export default function App() {
           </div>
         </section>
       </main>
-      <footer className="site-footer"><span>© 2026 {profile.name}</span><a href="#about">BACK TO TOP ↑</a></footer>
+      <footer className="site-footer"><span>© 2026 {profile.name}</span><a className="portrait-credit" href="https://www.meshy.ai/" target="_blank" rel="noopener noreferrer" aria-label="人像由 Meshy 生成，CC BY 4.0（在新标签页打开）">PORTRAIT · MESHY / CC BY 4.0</a><a href="#about">BACK TO TOP ↑</a></footer>
     </div>
   )
 }

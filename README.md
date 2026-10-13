@@ -2,7 +2,7 @@
 
 网址：https://zxz-joseph.github.io/
 
-React / TypeScript / React Three Fiber 个人主页，参考 [sen-3d-resume](https://github.com/dayinji/sen-3d-resume) 的滚动 3D 场景设计。源代码许可与素材范围见 `LICENSE` 和 `NOTICE`。
+React / TypeScript 个人主页，参考 [sen-3d-resume](https://github.com/dayinji/sen-3d-resume) 的固定人像与滚动正文设计。源代码许可与素材范围见 `LICENSE` 和 `NOTICE`。
 
 ## 本地开发
 
@@ -16,11 +16,11 @@ npm run dev
 
 ## 更新内容和人像
 
-个人介绍、经历、邮箱及模型路径集中在 `web/src/data/profile.ts`。项目区和当前工作描述按用户要求保留“待更新”。
+个人介绍、经历、邮箱及人像路径集中在 `web/src/data/profile.ts`。项目区和当前工作描述按用户要求保留“待更新”。
 
-人像为根据照片特征设计的风格化三维手办，采用本地原创几何与材质，未使用照片贴图。它是艺术化形象，并非扫描复原。模型加载失败或 WebGL 不可用时，显示同一角色的静态渲染图，正文和联系链接保持可用。人物模型及其渲染图不属于代码的 MIT 许可范围。
+人像是根据用户授权照片，经 Meshy / Nano Banana Pro 免费积分生成的三维插画风格图稿。按用户选择的免费方案，以透明 WebP 和轻微鼠标/滚动视差呈现；它是二维图稿动效，不支持绕转查看侧脸。系统启用减少动态效果时，人像保持静止。原照片保存在仓库外，未作为网页素材发布。
 
-运行 `node scripts/generate-portrait.mjs` 可重新导出模型；原始参考照片保存在仓库外。
+当前人像素材为 `web/public/portrait-joseph-v2.webp`。素材按 Meshy 免费方案的 CC BY 4.0 归属标注，页脚保留来源；详见 `NOTICE`。首版模型与生成脚本已移除，历史版本可通过 Git 恢复。
 
 ## 发布
 

@@ -1,86 +1,61 @@
-import { Component, lazy, Suspense, useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
-import { assetUrl } from '../data/profile'
+import { useEffect, useRef } from 'react'
 
-const ModelCanvas = lazy(() => import('./ModelCanvas'))
-
-class SceneBoundary extends Component<{ children: ReactNode; onFailure: () => void }, { failed: boolean }> {
-  state = { failed: false }
-  static getDerivedStateFromError() { return { failed: true } }
-  componentDidCatch() { this.props.onFailure() }
-  render() { return this.state.failed ? null : this.props.children }
-}
-
-function useReducedMotion() {
-  const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const change = () => setReduced(query.matches)
-    query.addEventListener('change', change)
-    return () => query.removeEventListener('change', change)
-  }, [])
-  return reduced
-}
-
-function useSceneVisibility() {
-  const [active, setActive] = useState(true)
-  useEffect(() => {
-    const mobile = window.matchMedia('(max-width: 700px)')
-    let heroVisible = true
-    const update = () => setActive(document.visibilityState !== 'hidden' && (!mobile.matches || heroVisible))
-    const hero = document.getElementById('about')
-    const observer = new IntersectionObserver(([entry]) => {
-      heroVisible = entry.isIntersecting
-      update()
-    }, { rootMargin: '-90px 0px 0px 0px' })
-    if (hero) observer.observe(hero)
-    mobile.addEventListener('change', update)
-    document.addEventListener('visibilitychange', update)
-    update()
-    return () => {
-      observer.disconnect()
-      mobile.removeEventListener('change', update)
-      document.removeEventListener('visibilitychange', update)
-    }
-  }, [])
-  return active
-}
-
-export default function PortraitScene({ modelUrl, portraitUrl }: { modelUrl: string | null; portraitUrl: string }) {
-  const [failed, setFailed] = useState(false)
-  const [ready, setReady] = useState(false)
-  const reducedMotion = useReducedMotion()
-  const active = useSceneVisibility()
+export default function PortraitScene({ portraitUrl }: { portraitUrl: string }) {
   const container = useRef<HTMLDivElement>(null)
-  const onFailure = useCallback(() => { setFailed(true); setReady(false) }, [])
-  const onReady = useCallback(() => setReady(true), [])
-
-  useEffect(() => {
-    if (!modelUrl || failed || ready) return
-    const timeout = window.setTimeout(onFailure, 30000)
-    return () => window.clearTimeout(timeout)
-  }, [modelUrl, failed, ready, onFailure])
 
   useEffect(() => {
     const element = container.current
     if (!element) return
-    // Capture the non-bubbling event so context loss immediately restores the stylized fallback.
-    element.addEventListener('webglcontextlost', onFailure, true)
-    return () => element.removeEventListener('webglcontextlost', onFailure, true)
-  }, [onFailure])
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const mobile = window.matchMedia('(max-width: 700px)')
+    let frame = 0
+    let pointerX = 0
+    let pointerY = 0
+
+    const render = () => {
+      frame = 0
+      const reduced = reducedMotion.matches
+      const progress = reduced ? 0 : Math.min(window.scrollY / window.innerHeight, 1)
+      const x = reduced || mobile.matches ? 0 : pointerX * 9
+      const y = reduced || mobile.matches ? 0 : pointerY * 5
+      element.style.setProperty('--portrait-x', `${x}px`)
+      element.style.setProperty('--portrait-y', `${y - progress * (mobile.matches ? 8 : 20)}px`)
+      element.style.setProperty('--portrait-angle', `${x * 0.08}deg`)
+    }
+    const update = () => {
+      if (document.visibilityState === 'hidden' || frame) return
+      frame = window.requestAnimationFrame(render)
+    }
+    const onPointerMove = (event: PointerEvent) => {
+      if (event.pointerType !== 'mouse' || reducedMotion.matches || mobile.matches) return
+      pointerX = event.clientX / window.innerWidth * 2 - 1
+      pointerY = event.clientY / window.innerHeight * 2 - 1
+      update()
+    }
+    const resetPointer = () => { pointerX = 0; pointerY = 0; update() }
+
+    render()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('pointermove', onPointerMove, { passive: true })
+    window.addEventListener('resize', update)
+    document.documentElement.addEventListener('pointerleave', resetPointer)
+    document.addEventListener('visibilitychange', update)
+    reducedMotion.addEventListener('change', update)
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', update)
+      window.removeEventListener('pointermove', onPointerMove)
+      window.removeEventListener('resize', update)
+      document.documentElement.removeEventListener('pointerleave', resetPointer)
+      document.removeEventListener('visibilitychange', update)
+      reducedMotion.removeEventListener('change', update)
+    }
+  }, [])
 
   return (
-    <div className={`portrait-stage${ready && !failed ? ' model-ready' : ''}`} ref={container} aria-hidden="true">
+    <div className="portrait-stage" ref={container} aria-hidden="true">
       <div className="portrait-halo" />
       <div className="portrait-photo"><img src={portraitUrl} alt="" loading="eager" /></div>
-      {modelUrl && !failed && (
-        <div className="portrait-canvas">
-          <SceneBoundary onFailure={onFailure}>
-            <Suspense fallback={null}>
-              <ModelCanvas url={assetUrl(modelUrl)} reducedMotion={reducedMotion} active={active} onReady={onReady} />
-            </Suspense>
-          </SceneBoundary>
-        </div>
-      )}
       <div className="portrait-vignette" />
       <span className="portrait-label">ZHANG XINZHEN <span>张鑫振</span></span>
     </div>

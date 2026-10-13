@@ -6,7 +6,7 @@ export interface TimelineEntry {
   type: string
 }
 
-// Personal content and optional assets are configured here, independently of the scene.
+// Personal content and the stylized portrait are configured here.
 export const profile: {
   name: string
   alias: string
@@ -15,7 +15,6 @@ export const profile: {
   email: string
   github: string
   portraitUrl: string
-  modelUrl: string | null
   timeline: TimelineEntry[]
 } = {
   name: '张鑫振',
@@ -24,8 +23,7 @@ export const profile: {
   bio: '一年实习，两年半AI测试负责人经验',
   email: 'ZXZ_Joseph@hotmail.com',
   github: 'https://github.com/Zxz-Joseph',
-  portraitUrl: 'portrait-stylized.webp',
-  modelUrl: 'models/portrait.glb',
+  portraitUrl: 'portrait-joseph-v2.webp',
   timeline: [
     {
       period: '2021 — 2025',
