@@ -1,0 +1,20 @@
+# Attribution and asset rights
+
+This frontend adapts the MIT-licensed build configuration and fixed React Three
+Fiber scene / scrollable HTML architecture of sen-3d-resume by Sen Zheng (SEN).
+The original copyright and MIT license are retained in LICENSE.
+Reference repository: https://github.com/dayinji/sen-3d-resume
+
+No original author's portrait, 3D model, HDR, logos, résumé or portfolio content
+is included. The personal content and portrait of 张鑫振 belong to their owner
+and are not licensed under MIT. The stylized portrait GLB is original geometry
+and PBR materials created locally by web/scripts/generate-portrait.mjs using
+the user-authorized photograph as a visual reference. Its static fallback is
+a render of that model. Neither asset uses photographic textures or a third-
+party model-generation service. The likeness assets are excluded from MIT;
+no rights to use the person’s likeness are granted by the code license.
+
+Cormorant Upright fonts are distributed under the SIL Open Font License 1.1.
+Their complete license and copyright are in
+web/public/fonts/OFL-CormorantUpright.txt.
+Source: https://github.com/google/fonts/tree/main/ofl/cormorantupright
