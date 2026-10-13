@@ -108,7 +108,15 @@ export default function App() {
           </div>
         </section>
       </main>
-      <footer className="site-footer"><span>© 2026 {profile.name}</span><a className="portrait-credit" href="https://www.meshy.ai/" target="_blank" rel="noopener noreferrer" aria-label="人像由 Meshy 生成，CC BY 4.0（在新标签页打开）">PORTRAIT · MESHY / CC BY 4.0</a><a href="#about">BACK TO TOP ↑</a></footer>
+      <footer className="site-footer">
+        <span>© 2026 {profile.name}</span>
+        <span className="portrait-credit">
+          <a href="https://www.meshy.ai/" target="_blank" rel="noopener noreferrer" aria-label="人像由 Meshy 生成（在新标签页打开）">PORTRAIT · MESHY</a>
+          {' / '}
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" title="人像已抠除背景、裁切并调整尺寸" aria-label="人像 CC BY 4.0 许可，已抠除背景、裁切并调整尺寸（在新标签页打开）">CC BY 4.0</a>
+        </span>
+        <a href="#about">BACK TO TOP ↑</a>
+      </footer>
     </div>
   )
 }
