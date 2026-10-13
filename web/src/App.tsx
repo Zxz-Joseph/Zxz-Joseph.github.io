@@ -55,8 +55,7 @@ export default function App() {
         <section className="hero" id="about" aria-labelledby="hero-title">
           <div className="hero-copy copy-column">
             <p className="eyebrow"><span className="status-dot" /> PERSONAL PROFILE / 2026</p>
-            <p className="hero-alias" aria-hidden="true">Hello, I’m<br /><em>{profile.alias}.</em></p>
-            <h1 id="hero-title">{profile.name}</h1>
+            <h1 id="hero-title">{profile.name}<span className="hero-name-alias">（{profile.alias}）</span></h1>
             <p className="tagline">{profile.tagline}</p>
             <p className="bio">{profile.bio}</p>
             <a className="text-link hero-link" href="#experience">了解我的经历 <span aria-hidden="true">↘</span></a>

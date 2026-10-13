@@ -73,9 +73,8 @@ main, .site-footer { position: relative; z-index: 2; }
 .eyebrow { font-size: 10px; line-height: 1.6; letter-spacing: 0.18em; font-weight: 400; color: var(--muted); }
 .hero-copy .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; }
 .status-dot { display: inline-block; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
-.hero-alias { font-family: 'Cormorant Upright', Georgia, serif; font-size: clamp(65px, 7.1vw, 112px); line-height: 0.91; letter-spacing: -0.035em; font-weight: 400; }
-.hero-alias em { font-style: normal; color: #c6d0b1; }
-h1 { font-size: clamp(24px, 2.4vw, 35px); font-weight: 400; letter-spacing: 0.22em; margin: 30px 0 21px; }
+h1 { font-size: clamp(38px, 4.2vw, 66px); font-weight: 400; line-height: 1.35; letter-spacing: 0.06em; margin: 0 0 28px; }
+.hero-name-alias { display: inline; font-family: 'Cormorant Upright', Georgia, serif; font-size: 0.8em; letter-spacing: 0; color: #c6d0b1; }
 .tagline { font-size: clamp(15px, 1.4vw, 20px); line-height: 1.9; letter-spacing: 0.03em; }
 .bio { color: var(--muted); font-size: 13px; line-height: 1.9; margin-top: 12px; }
 .text-link { font-size: 12px; display: inline-flex; gap: 45px; border-bottom: 1px solid var(--line); padding-block: 13px; transition: color 250ms; }
@@ -115,7 +114,7 @@ h3 { font-size: clamp(20px, 1.8vw, 27px); line-height: 1.65; font-weight: 400; l
 .site-footer a { font-size: 9px; letter-spacing: 0.16em; }
 
 @media (min-width: 1600px) { .copy-column { margin-left: 55%; width: 36%; } }
-@media (max-width: 900px) and (min-width: 701px) { .copy-column { margin-left: 52%; width: 41%; } .portrait-stage { width: 53%; } .hero-alias { font-size: 75px; } .tagline { max-width: 260px; } }
+@media (max-width: 900px) and (min-width: 701px) { .copy-column { margin-left: 52%; width: 41%; } .portrait-stage { width: 53%; } .tagline { max-width: 260px; } }
 @media (max-width: 700px) {
   html { scroll-padding-top: 94px; }
   .frame { inset: 12px; }
@@ -135,10 +134,8 @@ h3 { font-size: clamp(20px, 1.8vw, 27px); line-height: 1.65; font-weight: 400; l
   .copy-column { margin-left: 9%; width: 82%; max-width: none; }
   .hero { justify-content: flex-start; min-height: 100svh; padding: max(46svh, 310px) 0 100px; background: linear-gradient(to bottom, transparent 30%, rgba(13, 24, 21, 0.7) 55%, #0d1815 80%); }
   .hero-copy .eyebrow { margin-bottom: 18px; font-size: 8px; }
-  .hero-alias { font-size: clamp(64px, 17vw, 94px); }
-  .hero-alias br { display: none; }
-  .hero-alias em { display: block; }
-  h1 { font-size: 26px; margin: 21px 0 12px; }
+  h1 { font-size: 34px; margin: 0 0 16px; }
+  .hero-name-alias { display: inline; font-size: 0.7em; }
   .tagline { font-size: 15px; line-height: 1.8; }
   .bio { font-size: 11px; margin-top: 7px; }
   .hero-link { margin-top: 13px; font-size: 11px; }
