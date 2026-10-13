@@ -36,6 +36,6 @@ Files: `.github/workflows/deploy.yml`, `README.md`, optional public `robots.txt`
 
 - [x] Start `npm run dev -- --host 127.0.0.1` and inspect desktop plus 390-pixel mobile viewport in the real browser. Check Chinese headings, employer dates, scrolling, links, no horizontal overflow, portrait loading, failed-model fallback and reduced-motion behavior. Save screenshots and check browser error logs.
 - [x] Repeat typecheck/lint/build after final changes. Search built output for original-author identity and private résumé phone; all must be absent.
-- [ ] Configure standard GitHub Pages workflow to build `web/` using `npm ci` and publish only `web/dist`; switch repository Pages from legacy to Actions only after production-ready checks and final model integration.
-- [ ] Commit and push the completed change, monitor deployment, verify HTTPS production page and assets, and leave `hello-agents-8-week` unchanged.
-- [ ] Report the live URL, actual verification and any material model limitation. Do not claim facial reconstruction; describe the actual stylized model.
+- [x] Configure standard GitHub Pages workflow to build `web/` using `npm ci` and publish only `web/dist`; switch repository Pages from legacy to Actions only after production-ready checks and final model integration.
+- [x] Commit and push the completed change, monitor deployment, verify HTTPS production page and assets, and leave `hello-agents-8-week` unchanged.
+- [x] Report the live URL, actual verification and any material model limitation. Do not claim facial reconstruction; describe the actual stylized model.
