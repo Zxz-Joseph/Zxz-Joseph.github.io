@@ -21,7 +21,8 @@ The original photo is not distributed with this frontend. The likeness assets
 are excluded from MIT; no rights to use the person's likeness are granted by
 the code license. The rejected first-version GLB is not in the deployed assets.
 
-The sailboat favicon was supplied by the user and resized into PNG/ICO formats.
+The sailboat favicon was supplied by the user; its outer white background was
+removed locally and the result resized into transparent PNG/ICO formats.
 It is excluded from the code's MIT license; its original rights are retained.
 
 Cormorant Upright fonts are distributed under the SIL Open Font License 1.1.
