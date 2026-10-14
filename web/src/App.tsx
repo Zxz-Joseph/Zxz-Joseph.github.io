@@ -67,7 +67,7 @@ export default function App() {
         <section className="experience" id="experience" aria-labelledby="experience-title">
           <div className="section-heading copy-column">
             <p className="eyebrow">02 / THE JOURNEY</p>
-            <h2 id="experience-title">一路走来<span>Experience</span></h2>
+            <h2 id="experience-title"><span>Experience</span></h2>
           </div>
           <ol className="timeline copy-column">
             {profile.timeline.map((entry, index) => (
@@ -92,7 +92,7 @@ export default function App() {
         <section className="projects" id="projects" aria-labelledby="projects-title">
           <div className="copy-column">
             <p className="eyebrow">03 / SELECTED WORK</p>
-            <h2 id="projects-title">项目<span>Projects</span></h2>
+            <h2 id="projects-title"><span>Projects</span></h2>
             <div className="project-placeholder"><span aria-hidden="true">↗</span><p>待更新</p></div>
           </div>
         </section>
@@ -100,7 +100,7 @@ export default function App() {
         <section className="contact" id="contact" aria-labelledby="contact-title">
           <div className="copy-column">
             <p className="eyebrow">04 / GET IN TOUCH</p>
-            <h2 id="contact-title">保持联系<span>Let’s talk.</span></h2>
+            <h2 id="contact-title"><span>Let’s talk.</span></h2>
             <div className="contact-links">
               <a href={`mailto:${profile.email}`}><span className="eyebrow">EMAIL</span><span>{profile.email}</span><i aria-hidden="true">↗</i></a>
               <a href={profile.github} target="_blank" rel="noopener noreferrer"><span className="eyebrow">GITHUB</span><span>Zxz-Joseph<span className="sr-only">（在新标签页打开）</span></span><i aria-hidden="true">↗</i></a>
