@@ -91,7 +91,7 @@ h2 > span { display: block; font-family: 'Cormorant Upright', Georgia, serif; fo
 .timeline-entry:nth-child(2) { min-height: 74svh; }
 .timeline-entry:last-child { min-height: 54svh; padding-bottom: 100px; }
 .timeline-node { position: absolute; left: -12px; top: 22px; width: 24px; height: 24px; border: 1px solid #718471; background: #15251d; border-radius: 50%; font-family: 'Cormorant Upright', Georgia, serif; font-size: 12px; display: grid; place-items: center; color: var(--accent); }
-.entry-period { font-family: 'Cormorant Upright', Georgia, serif; font-size: 31px; margin: 14px 0 20px; color: #d8deca; }
+.entry-period { font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif; font-size: 26px; font-weight: 400; font-variant-numeric: lining-nums tabular-nums; line-height: 1.5; letter-spacing: 0.02em; margin: 14px 0 20px; color: #d8deca; }
 h3 { font-size: clamp(20px, 1.8vw, 27px); line-height: 1.65; font-weight: 400; letter-spacing: 0.04em; }
 .entry-role { font-size: 13px; line-height: 1.8; margin-top: 12px; color: var(--accent); }
 .entry-description { margin-top: 30px; color: #b3c0b3; font-size: 13px; line-height: 2; }
@@ -148,7 +148,7 @@ h3 { font-size: clamp(20px, 1.8vw, 27px); line-height: 1.65; font-weight: 400; l
   .timeline-entry { margin-left: -20px; padding-left: 33px; padding-bottom: 74px; min-height: 340px; }
   .timeline-entry:nth-child(2) { min-height: 520px; }
   .timeline-entry:last-child { min-height: 330px; padding-bottom: 80px; }
-  .entry-period { font-size: 30px; }
+  .entry-period { font-size: 24px; }
   h3 { font-size: 20px; }
   .entry-description { font-size: 12px; line-height: 2; margin-top: 22px; }
   .entry-role { font-size: 12px; }
