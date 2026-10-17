@@ -61,7 +61,8 @@ nav a:hover::after, nav a[aria-current]::after { transform: scaleX(1); }
 .portrait-halo { position: absolute; inset: 0 -20% 0 0; background: radial-gradient(ellipse at 38% 40%, #425449 0, #1f342a 32%, #0d1815 69%); }
 .portrait-photo { position: absolute; left: 8%; right: 0; top: 16%; bottom: 3%; opacity: 0.95; mask-image: linear-gradient(to bottom, #000 0%, #000 75%, transparent 97%); transform: translate(var(--portrait-x, 0px), var(--portrait-y, 0px)) rotate(var(--portrait-angle, 0deg)); transition: transform 450ms ease-out; }
 .portrait-photo img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; filter: saturate(0.8) contrast(1.02); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
-.portrait-vignette { position: absolute; inset: 0 -4% 0 0; background: linear-gradient(to right, rgba(13, 24, 21, 0.12), transparent 50%, #0d1815 97%), linear-gradient(to top, #0d1815 2%, transparent 35%); }
+/* Continue the vignette across the viewport so its opaque edge cannot cut through the halo. */
+.portrait-vignette { position: absolute; inset: 0 calc(100% - 100vw) 0 0; background: linear-gradient(to right, rgba(13, 24, 21, 0.12), transparent 27%, #0d1815 54%), linear-gradient(to top, #0d1815 2%, transparent 35%); }
 .portrait-label { position: absolute; left: 10%; bottom: 14%; writing-mode: vertical-rl; font-size: 9px; letter-spacing: 0.25em; color: #c0c7b9; }
 .portrait-label span { margin-top: 20px; letter-spacing: 0.5em; }
 main, .site-footer { position: relative; z-index: 2; }
