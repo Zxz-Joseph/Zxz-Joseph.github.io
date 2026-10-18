@@ -60,7 +60,7 @@ export default function App() {
             <p className="bio">{profile.bio}</p>
             <a className="text-link hero-link" href="#experience">了解我的经历 <span aria-hidden="true">↘</span></a>
           </div>
-          <div className="hero-caption" aria-hidden="true"><span>01 / ABOUT</span><span>AI TESTING · ENGINEERING</span></div>
+          <div className="hero-caption" aria-hidden="true"><span>01 / ABOUT</span><span>AI PROJECTS · QUALITY & DELIVERY</span></div>
           <a className="scroll-cue" href="#experience"><span>SCROLL TO EXPLORE</span><i aria-hidden="true" /></a>
         </section>
 
@@ -93,7 +93,18 @@ export default function App() {
           <div className="copy-column">
             <p className="eyebrow">03 / SELECTED WORK</p>
             <h2 id="projects-title"><span>Projects</span></h2>
-            <div className="project-placeholder"><span aria-hidden="true">↗</span><p>待更新</p></div>
+            <ol className="project-list">
+              {profile.projects.map((project, index) => (
+                <li className="project-entry" key={project.name}>
+                  <article>
+                    <p className="eyebrow">{String(index + 1).padStart(2, '0')} / {project.organization}</p>
+                    <h3>{project.name}</h3>
+                    <p className="project-description">{project.description}</p>
+                    <p className="project-outcome">{project.outcome}</p>
+                  </article>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 

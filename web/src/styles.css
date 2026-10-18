@@ -98,9 +98,11 @@ h3 { font-size: clamp(20px, 1.8vw, 27px); line-height: 1.65; font-weight: 400; l
 .entry-description { margin-top: 30px; color: #b3c0b3; font-size: 13px; line-height: 2; }
 .entry-description p + p { margin-top: 17px; }
 .projects { padding: 140px 0 170px; background: linear-gradient(90deg, transparent 30%, rgba(13, 24, 21, 0.68) 57%); }
-.project-placeholder { margin-top: 65px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 34px 0 38px; display: flex; align-items: center; justify-content: space-between; flex-direction: row-reverse; }
-.project-placeholder > span { font-family: 'Cormorant Upright', Georgia, serif; font-size: 34px; color: #718471; }
-.project-placeholder p { font-size: 16px; color: var(--muted); letter-spacing: 0.12em; }
+.project-list { list-style: none; margin: 65px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.project-entry { padding: 34px 0 38px; border-bottom: 1px solid var(--line); }
+.project-entry h3 { margin-top: 14px; }
+.project-description, .project-outcome { font-size: 13px; line-height: 2; margin-top: 20px; color: #b3c0b3; }
+.project-outcome { margin-top: 14px; color: var(--accent); }
 .contact { padding: 110px 0 175px; }
 .contact-links { margin-top: 65px; }
 .contact-links > a { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 24px 0; border-top: 1px solid var(--line); transition: color 250ms; }
@@ -142,7 +144,7 @@ h3 { font-size: clamp(20px, 1.8vw, 27px); line-height: 1.65; font-weight: 400; l
   .scroll-cue span { font-size: 7px; }
   .scroll-cue i { height: 25px; }
   .experience, .projects, .contact { background: #0d1815; }
-  .experience { padding-top: 80px; }
+  .experience { padding-top: 80px; display: flow-root; }
   h2 { font-size: 27px; }
   h2 > span { font-size: 60px; }
   .timeline { padding-left: 20px; margin-top: 55px; }
@@ -154,7 +156,9 @@ h3 { font-size: clamp(20px, 1.8vw, 27px); line-height: 1.65; font-weight: 400; l
   .entry-description { font-size: 12px; line-height: 2; margin-top: 22px; }
   .entry-role { font-size: 12px; }
   .projects { padding: 65px 0 110px; }
-  .project-placeholder { margin-top: 45px; }
+  .project-list { margin-top: 45px; }
+  .project-entry { padding: 28px 0 32px; }
+  .project-description, .project-outcome { font-size: 12px; }
   .contact { padding: 70px 0 110px; }
   .contact-links { margin-top: 45px; }
   .contact-links a > span:nth-child(2) { font-size: 15px; }
